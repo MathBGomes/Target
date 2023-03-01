@@ -1,0 +1,96 @@
+num = int(input("Informe um número: "))
+      
+# Inicializar os primeiros dois números da sequência
+a, b = 0, 1
+
+# Variável para indicar se o número informado pertence ou não à sequênciaa
+pertence = False
+
+# Verificar se o número informado é um dos primeiros dois números da sequência
+if num == a or num == b:
+    pertence = True
+
+# Calcular a sequência de Fibonacci até encontrar um número maior ou igual ao número informado
+while b < num:
+    a, b = b, a + b
+    if b == num:
+        pertence = True
+        break
+
+# Imprimir a mensagem indicando se o número pertence ou não à sequência
+if pertence:
+    print(f"O número {num} pertence à sequência de Fibonacci.")
+else:
+    print(f"O número {num} não pertence à sequência de Fibonacci.") 
+    
+    
+    
+    
+    
+    
+    3)  import json
+
+# Lendo os dados do arquivo JSON
+with open('faturamento.json') as file:
+    faturamento_mensal = json.load(file)
+
+# Calculando o menor e o maior valor de faturamento
+menor_faturamento = min(faturamento_mensal)
+maior_faturamento = max(faturamento_mensal)
+
+# Calculando a média mensal do faturamento
+dias_com_faturamento = [faturamento for faturamento in faturamento_mensal if faturamento > 0]
+media_mensal = sum(dias_com_faturamento) / len(dias_com_faturamento)
+
+# Calculando o número de dias com faturamento acima da média mensal
+dias_acima_da_media = sum(faturamento > media_mensal for faturamento in faturamento_mensal)
+
+# Imprimindo os resultados
+print("Menor faturamento: ", menor_faturamento)
+print("Maior faturamento: ", maior_faturamento)
+print("Número de dias com faturamento acima da média mensal: ", dias_acima_da_media)
+
+json
+{
+  "faturamento": [10, 20, 0, 30, 40, 0, 50, 60, 70, 80, 90, 100, 0, 110, 120, 130, 140, 0, 150, 160, 170, 180, 190, 200, 0, 210, 220, 230, 240, 250]
+}
+
+
+
+
+
+4)  faturamento = {
+    'SP': 67836.43,
+    'RJ': 36678.66,
+    'MG': 29229.88,
+    'ES': 27165.48,
+    'Outros': 19849.53
+}
+
+total = sum(faturamento.values()) # calcula o valor total do faturamento
+
+# imprime o percentual de representação de cada estadov
+for estado, valor in faturamento.items():
+    percentual = (valor / total) * 100
+    print(f'{estado}: {percentual:.2f}%')
+    
+    #a saida irá mostrar como irár fica
+    SP: 39.38%
+RJ: 21.30%
+MG: 16.96%
+ES: 15.75%
+Outros: 6.60%
+
+#SP tem a maior %  teve o maior faturamento
+
+
+
+
+
+5)  string = 'exemplo' # string a ser invertida
+inverso = '' # string onde será armazenado o resultado invertido
+
+# itera sobre cada caractere da string original, de trás para frente, e adiciona na nova string
+for i in range(len(string)-1, -1, -1):
+    inverso += string[i]
+    
